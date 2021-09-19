@@ -6,4 +6,4 @@ const initEnv = () => {
     if (isDevelopment) dotenv.config();
 };
 
-export default initEnv();
+export default initEnv;

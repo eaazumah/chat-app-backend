@@ -4,7 +4,7 @@ import depthLimit from 'graphql-depth-limit';
 import schema from '../graphql/schema';
 import createContext from './create.apollo.context';
 
-export const createApolloSever = (config: ApolloServerExpressConfig) => {
+export const createApolloServer = (config: ApolloServerExpressConfig) => {
     const server = new ApolloServer({
         schema,
         introspection: true,
@@ -17,7 +17,7 @@ export const createApolloSever = (config: ApolloServerExpressConfig) => {
 };
 
 const startApolloServer = async (app: Application) => {
-    const server = createApolloSever({
+    const server = createApolloServer({
         schema,
         introspection: true,
         context: createContext,
