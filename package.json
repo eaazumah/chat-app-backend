@@ -7,10 +7,10 @@
         "commit": "cz",
         "build": "tsc",
         "dev": "nodemon",
-        "postinstall": "tsc",
         "start": "node dist/app.js",
         "release": "standard-version",
         "generate": "graphql-codegen",
+        "postinstall": "npm run build",
         "test": "mocha --exit -r ts-node/register tests/**/*.test.ts"
     },
     "dependencies": {
