@@ -4,7 +4,7 @@ import express, { Application, Request, Response } from 'express';
 import helmet from 'helmet';
 import 'reflect-metadata';
 
-const createApp = () => {
+const createExpressApp = () => {
     const app: Application = express();
 
     // Express configuration
@@ -24,11 +24,7 @@ const createApp = () => {
         res.send('Hello world!');
     });
 
-    app.use((_req, res, next) => {
-        res.status(404).send('Unable to find the requested resource!');
-    });
-
     return app;
 };
 
-export default createApp;
+export default createExpressApp;

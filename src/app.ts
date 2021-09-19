@@ -1,17 +1,22 @@
 import { createServer } from 'http';
 import 'reflect-metadata';
 import startApolloServer from './server/apollo.server';
-import createApp from './server/create.app';
+import createExpressApp from './server/create.express.app';
 
 const startApp = async () => {
-    const app = createApp();
+    const PORT = process.env.PORT || 8000;
 
+    const app = createExpressApp();
     const httpServer = createServer(app);
 
     const server = await startApolloServer(app);
 
-    httpServer.listen(4000, () => {
-        console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`);
+    app.use((_req, res) => {
+        res.status(404).send('Unable to find the requested resource!');
+    });
+
+    httpServer.listen(PORT, () => {
+        console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
         // console.log(`🚀 Subscriptions ready at ws://localhost:${process.env.PORT}${server.subscriptionsPath}`);
     });
 };
