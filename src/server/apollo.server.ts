@@ -2,9 +2,9 @@ import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express';
 import { Application } from 'express';
 import depthLimit from 'graphql-depth-limit';
 import schema from '../graphql/schema';
-import createContext from './create.context';
+import createContext from './create.apollo.context';
 
-const createApolloSever = (config: ApolloServerExpressConfig) => {
+export const createApolloSever = (config: ApolloServerExpressConfig) => {
     const server = new ApolloServer({
         schema,
         introspection: true,
