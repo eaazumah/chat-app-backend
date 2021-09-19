@@ -9,7 +9,6 @@ const createExpressApp = () => {
 
     // Express configuration
     app.set('port', process.env.PORT || 3000);
-    // app.use(limiter);
 
     app.use(compression());
     app.use(express.urlencoded({ extended: true }));
