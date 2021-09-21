@@ -1,24 +1,34 @@
 import { createServer } from 'http';
 import 'reflect-metadata';
+import mongoDBConnect from './datastores/mongodb';
 import startApolloServer from './server/apollo.server';
 import createExpressApp from './server/create.express.app';
+import initEnv from './services/init.env';
 
 const startApp = async () => {
-    const PORT = process.env.PORT || 8000;
+    try {
+        initEnv();
 
-    const app = createExpressApp();
-    const httpServer = createServer(app);
+        const db = await mongoDBConnect();
 
-    const server = await startApolloServer(app);
+        const PORT = process.env.PORT || 8000;
 
-    app.use((_req, res) => {
-        res.status(404).send('Unable to find the requested resource!');
-    });
+        const app = createExpressApp();
+        const httpServer = createServer(app);
 
-    httpServer.listen(PORT, () => {
-        console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
-        // console.log(`🚀 Subscriptions ready at ws://localhost:${process.env.PORT}${server.subscriptionsPath}`);
-    });
+        const server = await startApolloServer(app);
+
+        app.use((_req, res) => {
+            res.status(404).send('Unable to find the requested resource!');
+        });
+
+        httpServer.listen(PORT, () => {
+            console.log(`🚀 Server ready at http://localhost:${PORT}${server.graphqlPath}`);
+            // console.log(`🚀 Subscriptions ready at ws://localhost:${process.env.PORT}${server.subscriptionsPath}`);
+        });
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 startApp();
