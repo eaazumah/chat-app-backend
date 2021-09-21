@@ -1,10 +1,25 @@
-import mongoose from 'mongoose';
+import { model, Schema } from 'mongoose';
 
-export const messageSchema = new mongoose.Schema({
-    text: String,
-    sender: String
-});
+export const messageSchema = new Schema(
+    {
+        text: {
+            type: String,
+            required: true
+        },
+        channelId: {
+            ref: 'Channel',
+            type: Schema.Types.ObjectId
+        },
+        senderId: {
+            ref: 'User',
+            type: Schema.Types.ObjectId
+        }
+    },
+    {
+        timestamps: true
+    }
+);
 
-const message = mongoose.model('Message', messageSchema);
+const Message = model('Message', messageSchema);
 
-export default message;
+export default Message;
