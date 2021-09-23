@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-core';
 const messageTypeDefs = gql`
     type Message {
         id: ID!
+        _id: ID!
         text: String!
         senderId: ID!
         channelId: ID!
@@ -43,6 +44,20 @@ const messageTypeDefs = gql`
 
     extend type Mutation {
         createMessage(data: MutationCreateMessageData!): Message!
+    }
+
+    input SubscriptionOnNewMessageFilters {
+        senderId: ID
+        channelId: ID
+    }
+    input SubscriptionOnMessageUpdateFilters {
+        id: ID
+        senderId: ID
+        channelId: ID
+    }
+
+    extend type Subscription {
+        onMessageUpdated(filters: SubscriptionOnMessageUpdateFilters!): Message!
     }
 `;
 

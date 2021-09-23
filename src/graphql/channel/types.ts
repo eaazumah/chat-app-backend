@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-core';
 const channelTypeDefs = gql`
     type Channel {
         id: ID!
+        _id: ID!
         ownerId: ID!
         name: String!
         deletedAt: Date

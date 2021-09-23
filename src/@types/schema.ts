@@ -24,6 +24,7 @@ export enum CacheControlScope {
 
 export type Channel = {
   __typename?: 'Channel';
+  _id: Scalars['ID'];
   createdAt: Scalars['Date'];
   deletedAt?: Maybe<Scalars['Date']>;
   id: Scalars['ID'];
@@ -41,6 +42,7 @@ export type ChannelsConnection = {
 
 export type Message = {
   __typename?: 'Message';
+  _id: Scalars['ID'];
   channel?: Maybe<Channel>;
   channelId: Scalars['ID'];
   createdAt: Scalars['Date'];
@@ -84,7 +86,7 @@ export type MutationCreateUserArgs = {
 export type MutationCreateChannelData = {
   id?: Maybe<Scalars['ID']>;
   name: Scalars['String'];
-  phone: Scalars['String'];
+  ownerId: Scalars['ID'];
 };
 
 export type MutationCreateMessageData = {
@@ -166,10 +168,28 @@ export type QueryUsersFilters = {
 export type Subscription = {
   __typename?: 'Subscription';
   _empty?: Maybe<Scalars['String']>;
+  onMessageUpdated: Message;
+};
+
+
+export type SubscriptionOnMessageUpdatedArgs = {
+  filters: SubscriptionOnMessageUpdateFilters;
+};
+
+export type SubscriptionOnMessageUpdateFilters = {
+  channelId?: Maybe<Scalars['ID']>;
+  id?: Maybe<Scalars['ID']>;
+  senderId?: Maybe<Scalars['ID']>;
+};
+
+export type SubscriptionOnNewMessageFilters = {
+  channelId?: Maybe<Scalars['ID']>;
+  senderId?: Maybe<Scalars['ID']>;
 };
 
 export type User = {
   __typename?: 'User';
+  _id: Scalars['ID'];
   createdAt: Scalars['Date'];
   deletedAt?: Maybe<Scalars['Date']>;
   id: Scalars['ID'];

@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid';
 import { MutationCreateMessageArgs } from '../../@types/schema';
 import Message from '../../models/model.message';
+import pubsub from '../../services/services.pubsub';
+import { ON_MESSAGE_UPDATED } from '../../util/constants';
 
 const createMessage = async (_: any, args: MutationCreateMessageArgs) => {
     const { data } = args;
@@ -17,6 +19,8 @@ const createMessage = async (_: any, args: MutationCreateMessageArgs) => {
             setDefaultsOnInsert: true
         }
     );
+
+    pubsub.publish(ON_MESSAGE_UPDATED, message);
     return message;
 };
 

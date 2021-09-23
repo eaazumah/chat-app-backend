@@ -3,6 +3,7 @@ import { gql } from 'apollo-server-core';
 const userTypeDefs = gql`
     type User {
         id: ID!
+        _id: ID!
         name: String!
         deletedAt: Date
         createdAt: Date!
