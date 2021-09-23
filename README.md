@@ -25,8 +25,8 @@ A few things to note in the project:
 #### 1. Clone this repo
 
 ```
-$ git clone git@github.com:sidhantpanda/docker-express-typescript-boilerplate.git your-app-name
-$ cd your-app-name
+$ git clone git@github.com:eaazumah/chat-app-backend.git
+$ cd chat-app-backend
 ```
 
 #### 2. Install dependencies
