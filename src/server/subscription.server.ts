@@ -1,8 +1,8 @@
-import { ApolloServer } from 'apollo-server-express';
 import { execute, GraphQLSchema, subscribe } from 'graphql';
 import { Server } from 'http';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import createLoaders from '../loaders';
+import { createApolloServer } from './apollo.server';
 
 const onConnect = () => {
     const loaders = createLoaders();
@@ -10,7 +10,7 @@ const onConnect = () => {
 };
 
 const createSubscriptionServer = ({ httpServer, schema }: { httpServer: Server; schema: GraphQLSchema }) => {
-    const server = new ApolloServer({
+    const server = createApolloServer({
         schema
     });
 

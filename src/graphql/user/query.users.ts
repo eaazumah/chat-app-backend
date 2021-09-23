@@ -1,6 +1,6 @@
 import { QueryUsersArgs } from '../../@types/schema';
 import Users from '../../models/model.user';
-import formatPage from '../../util/formatPage';
+import formatPage from '../../utils/format-page';
 
 const users = async (_: any, args: QueryUsersArgs) => {
     const { filters } = args;

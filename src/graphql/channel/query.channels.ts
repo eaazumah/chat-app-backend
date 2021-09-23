@@ -1,6 +1,6 @@
 import { QueryChannelsArgs } from '../../@types/schema';
 import Channel from '../../models/model.channel';
-import formatPage from '../../util/formatPage';
+import formatPage from '../../utils/format-page';
 
 const channels = async (_: any, args: QueryChannelsArgs) => {
     const { filters } = args;

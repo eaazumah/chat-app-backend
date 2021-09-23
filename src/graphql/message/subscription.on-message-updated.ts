@@ -1,7 +1,7 @@
 import { withFilter } from 'graphql-subscriptions';
 import { Message, SubscriptionOnMessageUpdatedArgs } from '../../@types/schema';
 import pubsub from '../../services/services.pubsub';
-import { ON_MESSAGE_UPDATED } from '../../util/constants';
+import { ON_MESSAGE_UPDATED } from '../../utils/constants';
 
 const onMessageUpdated = {
     resolve: async (payload: any) => {

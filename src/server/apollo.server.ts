@@ -7,7 +7,18 @@ import { Application } from 'express';
 import { GraphQLSchema } from 'graphql';
 import depthLimit from 'graphql-depth-limit';
 import { SubscriptionServer } from 'subscriptions-transport-ws';
-import createContext from './create.apollo.context';
+import createLoaders from '../loaders';
+
+const createContext = async ({ _, __, connection }: any) => {
+    if (connection) {
+        return {
+            ...connection.context
+        };
+    }
+    const loaders = createLoaders();
+
+    return { loaders };
+};
 
 export const createApolloServer = (config: ApolloServerExpressConfig) => {
     const server = new ApolloServer({

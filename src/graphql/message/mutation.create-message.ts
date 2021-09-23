@@ -2,7 +2,7 @@ import { nanoid } from 'nanoid';
 import { MutationCreateMessageArgs } from '../../@types/schema';
 import Message from '../../models/model.message';
 import pubsub from '../../services/services.pubsub';
-import { ON_MESSAGE_UPDATED } from '../../util/constants';
+import { ON_MESSAGE_UPDATED } from '../../utils/constants';
 
 const createMessage = async (_: any, args: MutationCreateMessageArgs) => {
     const { data } = args;

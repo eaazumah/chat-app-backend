@@ -1,6 +1,6 @@
 import { QueryMessagesArgs } from '../../@types/schema';
 import Message from '../../models/model.message';
-import formatPage from '../../util/formatPage';
+import formatPage from '../../utils/format-page';
 
 const messages = async (_: any, args: QueryMessagesArgs) => {
     const { filters } = args;
