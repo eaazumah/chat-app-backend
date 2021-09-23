@@ -29,8 +29,9 @@ const channelTypeDefs = gql`
     }
 
     input MutationCreateChannelData {
+        id: ID
+        ownerId: ID!
         name: String!
-        phone: String!
     }
 
     extend type Query {

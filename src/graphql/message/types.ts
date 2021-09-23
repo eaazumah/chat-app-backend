@@ -31,6 +31,7 @@ const messageTypeDefs = gql`
     }
 
     input MutationCreateMessageData {
+        id: ID
         text: String!
         senderId: ID!
         channelId: ID!

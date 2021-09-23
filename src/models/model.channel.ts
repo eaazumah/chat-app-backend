@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose';
+import User from './model.user';
 
 export const channelSchema = new Schema(
     {
@@ -20,6 +21,10 @@ export const channelSchema = new Schema(
         timestamps: true
     }
 );
+
+channelSchema.path('ownerId').validate(async (value: string) => {
+    return await User.findById(value);
+}, 'User does not exist');
 
 const Channel = model('Channel', channelSchema);
 

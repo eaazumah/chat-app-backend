@@ -1,4 +1,6 @@
 import { model, Schema } from 'mongoose';
+import Channel from './model.channel';
+import User from './model.user';
 
 export const messageSchema = new Schema(
     {
@@ -25,6 +27,13 @@ export const messageSchema = new Schema(
         timestamps: true
     }
 );
+messageSchema.path('senderId').validate(async (value: string) => {
+    return await User.findById(value);
+}, 'User does not exist');
+
+messageSchema.path('channelId').validate(async (value: string) => {
+    return await Channel.findById(value);
+}, 'Channel does not exist');
 
 const Message = model('Message', messageSchema);
 

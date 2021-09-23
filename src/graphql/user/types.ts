@@ -26,6 +26,7 @@ const userTypeDefs = gql`
     }
 
     input MutationCreateUserData {
+        id: ID
         name: String!
         phone: String!
     }

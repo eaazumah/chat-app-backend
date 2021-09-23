@@ -82,17 +82,20 @@ export type MutationCreateUserArgs = {
 };
 
 export type MutationCreateChannelData = {
+  id?: Maybe<Scalars['ID']>;
   name: Scalars['String'];
   phone: Scalars['String'];
 };
 
 export type MutationCreateMessageData = {
   channelId: Scalars['ID'];
+  id?: Maybe<Scalars['ID']>;
   senderId: Scalars['ID'];
   text: Scalars['String'];
 };
 
 export type MutationCreateUserData = {
+  id?: Maybe<Scalars['ID']>;
   name: Scalars['String'];
   phone: Scalars['String'];
 };
@@ -137,6 +140,7 @@ export type QueryChannelsFilters = {
   limit?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   offset?: Maybe<Scalars['Int']>;
+  ownerId?: Maybe<Scalars['ID']>;
 };
 
 export type QueryMessagesFilters = {
