@@ -47,93 +47,38 @@ $ npm run dev
 
 Running the above commands results in
 
--   🌏**API Server** running at `http://localhost:3000`
--   🌏**SOCKET.IO Server** running at `http://localhost:3000`
--   🌏**GRAPH QL Server** running at `http://localhost:3000/graphql`
-
-### API
-
-## REST
-
-```
-Local
-http://localhost:3000/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
-```
-
-```
-Live
-https://baqust-price-test.herokuapp.com/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
-```
-
-Will return all pair prices
+-   🚀**Server** running at `http://localhost:3000/`
+-   🚀**GRAPH QL Server** running at `http://localhost:3000/graphql`
+-   🚀**Subscriptions Server** running at `ws://localhost:3000/graphql`
 
 ## GRAPHQL
 
+Local:Will open a graphql playground
+
 ```
-Local
 http://localhost:3000/graphql/
 ```
 
-```
 Live
-https://baqust-price-test.herokuapp.com/graphql/
-```
 
-Will open a graphql playground
+```
+https://chats-app-backend.herokuapp.com/graphql
+```
 
 Please note graphql playground has been disable on production server **[Firecamp](https://firecamp.io/)** graphql
 environment can be used for testing
 
-### Example query
-
-```
-query ExampleQuery($getPricePairsInput: GetPricePairs!) {
-  getPricePairs(input: $getPricePairsInput)
-}
-
-```
-
-Query variables
-
-```
-{
-  "getPricePairsInput": {
-    "fsyms": "BTC,LINK",
-    "tsyms": "USD"
-  }
-}
-```
-
-## SOCKET IO
-
-### Connection
-
-Using the the **[socket io client library](https://socket.io/docs/v3/client-api/)** connect using the below url format
-fsyms and tsyms can be change to much client needs
-
-```
-Local
-http://localhost:3000?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
-```
-
-```
-Live
-https://baqust-price-test.herokuapp.com/api/price?fsyms=BTC,LINK,MKR&tsyms=USD,EUR,ETH,LTC
-```
-
-Add and event listeners for `data`
-
-**[Firecamp](https://firecamp.io/)** socket io environment can be used for testing
-
 ## Deployment
 
-A deploy CI has been setup to auto deploy on push to main to heroku
+A deploy CI has been setup to auto deploy on push to main, to heroku
 
 You checkout the live server at
 
--   🌏**API Server** running at `https://baqust-price-test.herokuapp.com`
--   🌏**SOCKET.IO Server** running at `https://baqust-price-test.herokuapp.com/`
--   🌏**GRAPH QL Server** running at `https://baqust-price-test.herokuapp.com/graphql`
+Running the above commands results in
+
+-   🚀**Server** running at `https://chats-app-backend.herokuapp.com/`
+-   🚀**GRAPH QL Server** running at `https://chats-app-backend.herokuapp.com/graphql`
+-   🚀**Subscriptions Server** running at `ws://localhost:3000/graphql`
 
 ---
 
