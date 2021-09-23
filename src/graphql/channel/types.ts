@@ -4,7 +4,7 @@ const channelTypeDefs = gql`
     type Channel {
         id: ID!
         ownerId: ID!
-        name: string!
+        name: String!
         deletedAt: Date
         createdAt: Date!
         updatedAt: Date!
@@ -23,17 +23,18 @@ const channelTypeDefs = gql`
         ids: [ID!]
         limit: Int
         offset: Int
-        name: string
+        ownerId: ID
+        name: String
         deleted: Boolean
     }
 
     input MutationCreateChannelData {
         name: String!
-        phone: string!
+        phone: String!
     }
 
     extend type Query {
-        orders(filters: QueryChannelsFilters!): ChannelsConnection!
+        channels(filters: QueryChannelsFilters!): ChannelsConnection!
     }
 
     extend type Mutation {

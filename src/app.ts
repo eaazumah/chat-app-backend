@@ -1,5 +1,4 @@
 import { createServer } from 'http';
-import 'reflect-metadata';
 import mongoDBConnect from './datastores/mongodb';
 import startApolloServer from './server/apollo.server';
 import createExpressApp from './server/create.express.app';

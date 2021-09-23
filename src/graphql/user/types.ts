@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-core';
 const userTypeDefs = gql`
     type User {
         id: ID!
-        name: string!
+        name: String!
         deletedAt: Date
         createdAt: Date!
         updatedAt: Date!
@@ -20,14 +20,14 @@ const userTypeDefs = gql`
         ids: [ID!]
         limit: Int
         offset: Int
-        name: string
+        name: String
         deleted: Boolean
-        phone: PhoneNumber!
+        phone: PhoneNumber
     }
 
     input MutationCreateUserData {
         name: String!
-        phone: string!
+        phone: String!
     }
 
     extend type Query {

@@ -3,7 +3,7 @@ import { gql } from 'apollo-server-core';
 const messageTypeDefs = gql`
     type Message {
         id: ID!
-        text: string!
+        text: String!
         senderId: ID!
         channelId: ID!
         deletedAt: Date

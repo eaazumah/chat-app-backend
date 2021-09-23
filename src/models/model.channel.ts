@@ -2,13 +2,18 @@ import { model, Schema } from 'mongoose';
 
 export const channelSchema = new Schema(
     {
+        _id: {
+            type: String,
+            required: true
+        },
         name: {
             type: String,
             required: true
         },
         ownerId: {
             ref: 'User',
-            type: Schema.Types.ObjectId
+            type: String,
+            required: true
         }
     },
     {

@@ -11,7 +11,7 @@
         "release": "standard-version",
         "generate": "graphql-codegen",
         "postinstall": "npm run build",
-        "seed:mongoose": "ts-node src/datastores/seeds.ts",
+        "seed": "ts-node src/datastores/seeds.ts",
         "test": "mocha --exit -r ts-node/register tests/**/*.test.ts"
     },
     "dependencies": {
@@ -37,6 +37,8 @@
     "devDependencies": {
         "@commitlint/cli": "^13.1.0",
         "@commitlint/config-conventional": "^13.1.0",
+        "@graphql-codegen/cli": "^2.2.0",
+        "@graphql-codegen/typescript": "^2.2.2",
         "@types/chai": "^4.2.21",
         "@types/compression": "^1.7.2",
         "@types/faker": "^5.5.8",
