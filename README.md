@@ -1,7 +1,15 @@
-# Baqust Rest
+# Group Chat Backend
 
-Create a service that collect data from cryptocompare.com using its API and stores it in a database
-(MySQL/PostgreSQL/Mongo)
+### **User Stories**
+
+-   **User story:** By default, I am in the Welcome channel (i.e /getChannel)
+-   **User story:** I can create a new channel with a name and a description (i.e /createChannel(characteristics)
+-   **User story:** I can select a channel of my choice
+-   **User story:** When I can select a channel, I am added as a member of the channel
+-   **User story:** I can see a member of the channel
+-   **User story:** I can send a message
+-   **User story:** I can see other people's messages
+-   **User story:** I can search for a group
 
 A few things to note in the project:
 
